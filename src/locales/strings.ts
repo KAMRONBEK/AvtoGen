@@ -1,0 +1,17 @@
+export const STRINGS = {
+  NAME: 'имя',
+  PhoneNumber: 'номер телефона ',
+  Register: 'Зарегистрироваться',
+  Verify: 'Verify',
+  Washinganddrycleaning: 'Мойка и химчистка',
+  barbershop: 'Барбершоп',
+  Computerdiagnostics: 'Компьютерная диагностика ',
+  Bodyrepair: 'Кузовной ремонт ',
+  Additionalservices: 'Дополнительный услуги',
+  WehavesentanOTPonyournumber: 'We have sent an OTP on your number',
+  Myorder: 'мой заказ',
+  Hours:"Часов",
+  Намопнитьзаминут:"Намопнить за 30 минут",
+  Cancel:"Отменять",
+  Next:"Далше",
+};
