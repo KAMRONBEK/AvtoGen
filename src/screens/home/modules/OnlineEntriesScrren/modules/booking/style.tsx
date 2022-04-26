@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
   container2: {
     paddingHorizontal: 20,
-    marginTop: 30,
+    marginTop:30,
     paddingTop: 20,
     flex: 2,
     backgroundColor: '#272727',
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     marginLeft: -15,
     marginBottom: -15,
     paddingHorizontal: 15,
-    marginTop: 50,
   },
   imgcontainer: {
     justifyContent: 'center',

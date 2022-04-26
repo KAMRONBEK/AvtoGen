@@ -15,6 +15,7 @@ import {
 import {images} from '../../../../../constants/images';
 import {COLORS} from '../../../../../constants/colors';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {ROUTES} from '../../../../../constants/routes';
 
 const Search = () => {
   const navigation = useNavigation();
@@ -27,7 +28,8 @@ const Search = () => {
       <View style={styles.container}>
         <Image style={styles.img} source={images.Avtogen} />
         <View style={styles.search}>
-          <TouchableOpacity onPress={onMenuPress}>
+          <TouchableOpacity
+            onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
             <MenuIcon />
           </TouchableOpacity>
           <TextInput style={styles.input} />
@@ -35,7 +37,7 @@ const Search = () => {
         </View>
 
         <View style={styles.homeContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Главная')}>
+          <TouchableOpacity onPress={() => navigation.navigate(ROUTES.HOME)}>
             <HomeIcon />
           </TouchableOpacity>
         </View>

@@ -51,7 +51,6 @@ export default function Tabbar() {
 
 const styles = StyleSheet.create({
   background: {
-    // backgroundColor: COLORS.backgroundColorInput,
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginHorizontal: 10,
@@ -61,8 +60,6 @@ const styles = StyleSheet.create({
   },
   box: {
     borderRadius: 25,
-    // backgroundColor: COLORS.white,
-    // color: COLORS.textBlack,
     borderColor: COLORS.backgroundColorInput,
     borderWidth: 1,
     paddingVertical: 8,

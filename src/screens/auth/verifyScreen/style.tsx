@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
   button: {
     borderColor: COLORS.backgroundColorInput,
     borderWidth: 1,
-    // marginHorizontal:25,
     alignItems: 'center',
     borderRadius: 25,
     paddingVertical: 15,

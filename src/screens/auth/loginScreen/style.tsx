@@ -25,5 +25,13 @@ const styles = StyleSheet.create({
     height: '37%',
     justifyContent: 'flex-end',
   },
+  button1: {
+    backgroundColor: '#fff',
+    marginHorizontal: 20,
+  },
+
+  buttonTxt: {
+    fontSize: 18,
+  },
 });
 export default styles;

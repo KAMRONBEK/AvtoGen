@@ -6,9 +6,8 @@ import {STRINGS} from '../../../locales/strings';
 import styles from './style';
 import {useVerifyHook} from './hooks';
 
-let numbe = '+998977250000';
-export default function view() {
-  const {verify, handleInputChange, state, goBack} = useVerifyHook();
+export default function VerifyView() {
+  const {verify, handleInputChange, state, goBack, phone} = useVerifyHook();
   return (
     <View style={styles.container}>
       <View style={styles.containerTitle}>
@@ -18,7 +17,7 @@ export default function view() {
           </TouchableOpacity>
           <Text style={styles.title}>{STRINGS.Verify}</Text>
           <Text style={styles.number}>
-            {STRINGS.WehavesentanOTPonyournumber},{numbe}
+            {STRINGS.WehavesentanOTPonyournumber},{phone}
           </Text>
         </View>
         <OTPInputView

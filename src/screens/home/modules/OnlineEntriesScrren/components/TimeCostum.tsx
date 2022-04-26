@@ -20,7 +20,7 @@ const TimeCostum = () => {
 
   useEffect(() => {
     _scrollRef.current.scrollToIndex({
-      animated: true,
+      // animated: true,
       index: selectedIndex,
     });
   }, [selectedIndex]);
@@ -30,8 +30,8 @@ const TimeCostum = () => {
       node + selectedIndex,
       '------------------------------------------',
     );
-    // if (node + selectedIndex < 47 && node + selectedIndex + node > 0)
-    setSelectedIndex(selectedIndex + node);
+    if (node + selectedIndex < 47 && node + selectedIndex + node > 0)
+      setSelectedIndex(selectedIndex + node);
   };
   return (
     <View style={styles.container}>
@@ -53,9 +53,7 @@ const TimeCostum = () => {
           marginTop: -20,
           marginLeft: -20,
         }}
-        // extraData={[selectedIndex]}
         snapToInterval={70}
-        // pagingEnabled
         ref={_scrollRef}
         data={new Array(48).fill('').map((_, i) => (
           <Text style={styles.hours}>

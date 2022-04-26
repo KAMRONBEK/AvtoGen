@@ -5,17 +5,17 @@ import {
   ViewStyle,
   StyleProp,
   GestureResponderEvent,
-  TextInput,
   Text,
   TouchableOpacity,
+  Image,
+  ImageSourcePropType,
 } from 'react-native';
-import {IconProps} from '../../../assets/Icons/Icons';
 import {COLORS} from '../../../constants/colors';
 
 export interface BlueButtonProps {
   placeholder?: string;
   text?: string;
-  Icon?: IconProps;
+  Icon?: ImageSourcePropType;
   style?: StyleProp<ViewStyle>;
   onPress?: (event: GestureResponderEvent) => void;
 }
@@ -30,7 +30,9 @@ const DefualtInput = ({
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.inputContainer}>
-        <View style={styles.icon}>{Icon}</View>
+        <View style={styles.icon}>
+          <Image style={{width: 10, height: 20}} source={Icon} />
+        </View>
         <View style={styles.textcontainer}>
           <Text style={styles.text}>{text}</Text>
         </View>

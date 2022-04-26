@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {COLORS} from '../../../../constants/colors';
 
 const styles = StyleSheet.create({
@@ -9,7 +8,6 @@ const styles = StyleSheet.create({
   },
   back: {
     padding: 30,
-    // backgroundColor: COLORS.textBlack,
   },
   img: {
     width: 325,
@@ -27,7 +25,7 @@ const styles = StyleSheet.create({
     marginLeft: -15,
     marginBottom: -15,
     paddingHorizontal: 15,
-    marginTop: 50,
+    marginTop: 5,
   },
   imgcontainer: {
     justifyContent: 'center',
@@ -56,7 +54,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   container1: {
-    // marginTop: 30,
     height: 400,
     backgroundColor: COLORS.textBlack,
   },

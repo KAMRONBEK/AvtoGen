@@ -1,28 +1,27 @@
 import {View, Text, Image, TextInput} from 'react-native';
 import React from 'react';
-import MapView, {Marker, Polyline} from 'react-native-maps';
+import MapView, {Marker, Polyline, } from 'react-native-maps';
 import styles from './style';
 import Search from './components/Search';
 import {COLORS} from '../../../../constants/colors';
 import MapViewDirections from 'react-native-maps-directions';
 import {useNavigation} from '@react-navigation/native';
+import {useListServices} from './hook';
 
 const view = () => {
+  const origin  = {
+  latitude: 41.31943019940532,
+  longitude: 69.23019650312479,
+}
+const destination ={
+  latitude: 41.32697880052311,
+  longitude: 69.28334919586435
+
+}
+  const {listservices} = useListServices();
   const navigation = useNavigation();
-  const origin = {latitude: 41.28495839091263, longitude: 69.25833026908721};
-  const destination = {
-    latitude: 41.31943019940532,
-    longitude: 69.23019650312479,
-  };
-  const coordinate = [
-    {
-      latitude: 41.28495839091263,
-      longitude: 69.25833026908721,
-    },
-    {latitude: 41.31943019940532, longitude: 69.23019650312479},
-    {latitude: 41.27089183237682, longitude: 69.18524529672082},
-  ];
-  const GOOGLE_MAPS_APIKEY = 'AIzaSyAgnw4npdhq0wdH3GQVKNAwEuEBGeM2FxE';
+  // let api = 'AIzaSyAg85fttaNZA_wmaZgvpFfzrUs8ohWrVBc'
+
   return (
     <View>
       <MapView
@@ -33,39 +32,31 @@ const view = () => {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
-        <Marker
-          // onPress={() => navigation.navigate('')}
-          coordinate={coordinate[1]}
-          title={'chorsu'}
-          onCalloutPress={() => navigation.navigate('Services')}
-          description={'chorsu'}
-          pinColor={COLORS.backgroundColorInput}
-        />
-        <Marker
-          // onPress={() => navigation.navigate('')}
-          coordinate={coordinate[2]}
-          title={'Chilonzor'}
-          onCalloutPress={() => navigation.navigate('Services')}
-          description={'Chilonzor'}
-          pinColor={COLORS.backgroundColorInput}
-        />
-        <Marker
-          coordinate={coordinate[0]}
-          onCalloutPress={() => navigation.navigate('Services')}
-          title={'Qwerty'}
-          description={'Qwerty'}
-          pinColor={COLORS.backgroundColorInput}
-        />
-
-        <MapViewDirections
-          origin={coordinate[0]}
-          destination={coordinate[1]}
-          apikey={GOOGLE_MAPS_APIKEY}
-          strokeWidth={4}
-          strokeColor={'black'}
-        />
+        {listservices.map(e => {
+          let split = e.location.split(',');
+          let latitude = parseFloat(split[0]);
+          let longitude = parseFloat(split[1]);
+          
+          return (
+            <Marker
+              onPress={() => navigation.navigate( "Services", {category_id: e.category_id,  service_id: e.id})}
+              coordinate={{
+                latitude,
+                longitude,
+              }}
+              title={e.name}
+              pinColor={COLORS.backgroundColorInput}
+            />
+          );
+        })}
+        {/* <MapViewDirections
+          origin={origin}
+          destination={destination}
+          apikey={api}
+          strokeWidth={3}
+          strokeColor="hotpink"
+        /> */}
       </MapView>
-
       <Search />
     </View>
   );

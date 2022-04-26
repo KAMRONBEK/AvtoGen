@@ -24,6 +24,7 @@ import {COLORS} from '../../../../constants/colors';
 import DatePicker from 'react-native-date-picker';
 import TimeCostum from './components/TimeCostum';
 import AppLoader from '../components/AppLoader';
+import {useEntriesHook} from './hooks';
 let text = {
   adrees: 'ул. Лабзак, 12/1, Tashkent',
   name: 'Truman Barbershop',
@@ -32,7 +33,6 @@ let text = {
 
 export default function view() {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-
   const hideDatePicker = () => {
     setDatePickerVisibility(false);
   };
@@ -42,13 +42,13 @@ export default function view() {
     console.warn('A date has been picked: ', date);
     hideDatePicker();
   };
-  const navigation = useNavigation();
   const [date, setDate] = useState(new Date());
+  const {entries, handleInputChange, state, goBack} = useEntriesHook();
   return (
     <>
       <View style={styles.container}>
         <View style={styles.HeaderContainer}>
-          <TouchableOpacity onPress={navigation.goBack}>
+          <TouchableOpacity onPress={goBack}>
             <View style={styles.back}>
               <BackWIcon />
             </View>
@@ -57,24 +57,29 @@ export default function view() {
             <MenuIocnVertical />
           </TouchableOpacity>
         </View>
-        <View style={styles.imgcontainer}>
-          <Image style={styles.img} source={images.BackgroundImg} />
-          <Image style={styles.img1} source={images.Chair} />
+       <View style={styles.imgcontainer}>
+        <Image style={styles.img} source={images.BackgroundImg} />
+        <Image style={styles.img1} source={images.Chair} />
+      </View>
+      <View style={styles.textcontainer}>
+        <View>
+          <Text style={styles.textname}>{text.name}</Text>
+          <Text style={styles.textadrees}>{text.adrees}</Text>
         </View>
-        <View style={styles.textcontainer}>
-          <View>
-            <Text style={styles.textname}>{text.name}</Text>
-            <Text style={styles.textadrees}>{text.adrees}</Text>
-          </View>
-          <Text style={styles.textclock}>
-            {text.clock}
-            <Text style={styles.text}>{STRINGS.Hours}</Text>
-          </Text>
-        </View>
+        <Text style={styles.textclock}>
+          {text.clock}
+          <Text style={styles.text}>{STRINGS.Hours}</Text>
+        </Text>
+      </View>
       </View>
       <View style={styles.container1}>
         <Agenda
           style={styles.agenda}
+          hideKnob={true}
+          onDayChange={handleInputChange('datetime')}
+          onDayPress={day => {
+            console.log(day);
+          }}
           theme={{
             backgroundColor: COLORS.textBlack,
             calendarBackground: COLORS.textBlack,
@@ -92,7 +97,7 @@ export default function view() {
             <Text style={styles.textBell}>{STRINGS.Намопнитьзаминут}</Text>
           </View>
           <View style={styles.row1}>
-            <TouchableOpacity onPress={navigation.goBack}>
+            <TouchableOpacity onPress={goBack}>
               <View style={styles.button}>
                 <LIcon />
                 <Text style={styles.textBell}>{STRINGS.Cancel}</Text>

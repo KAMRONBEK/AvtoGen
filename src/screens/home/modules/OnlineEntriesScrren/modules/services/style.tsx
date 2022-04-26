@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textname: {
+    width:230,
     fontSize: 22,
     color: COLORS.white,
   },
@@ -48,8 +49,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: COLORS.white,
     marginTop: 20,
-    marginHorizontal: 35,
-  },
+ },
   text: {
     fontSize: 14,
   },

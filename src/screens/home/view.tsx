@@ -1,23 +1,14 @@
-import {View, Text, Image} from 'react-native';
-import React from 'react';
-import styles from './style';
-import HeaderImg from '../../components/general/HeaderImg';
-import OrangeButton from './components/OrangeButton';
-import {STRINGS} from '../../locales/strings';
-import {
-  Armchair,
-  Barbershop,
-  Car,
-  CarSetting,
-  Computer,
-  Phone,
-} from '../../assets/Icons/Icons';
-import {images} from '../../constants/images';
 import {useNavigation} from '@react-navigation/native';
-import SwipeButton from 'rn-swipe-button';
+import React from 'react';
+import {Image, View} from 'react-native';
+import HeaderImg from '../../components/general/HeaderImg';
+import {images} from '../../constants/images';
+import {ROUTES} from '../../constants/routes';
+import OrangeButton from './components/OrangeButton';
 import {useCatigoriesData} from './hooks';
+import styles from './style';
 
-export default function view() {
+export default function HomeView() {
   const navigation = useNavigation();
   const {catigories} = useCatigoriesData();
 
@@ -26,22 +17,16 @@ export default function view() {
       <HeaderImg />
       <View>
         {catigories.map(e => {
+          
           return (
             <OrangeButton
-              Icon={<Car />}
+              Icon={{uri: e.image}}
               text={e.name}
-              onPress={() => navigation.navigate('Maps')}
+              onPress={() => navigation.navigate(ROUTES.CATEGORIES, {id: e.id})}
+              
             />
           );
         })}
-        <OrangeButton Icon={<Barbershop />} text={catigories?.name} />
-        <OrangeButton Icon={<Computer />} text={STRINGS.Computerdiagnostics} />
-        <OrangeButton Icon={<CarSetting />} text={STRINGS.Bodyrepair} />
-        <OrangeButton Icon={<Armchair />} text={STRINGS.Additionalservices} />
-        {/* <SwipeButton
-          thumbIconImageSource={<Computer />}
-          railBackgroundColor="#cfb0dd"
-        /> */}
         <Image style={styles.img} source={images.Audo} />
       </View>
     </View>

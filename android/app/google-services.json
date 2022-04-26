@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "922592590555",
+    "project_id": "avtogen-uz",
+    "storage_bucket": "avtogen-uz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922592590555:android:e32a119e7c62f4e56eeafe",
+        "android_client_info": {
+          "package_name": "uz.avtogen.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922592590555-o9vvj618o81m78gmkj257goqcelrv9h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVN_k-Z6EYE_mt6MvMQv0G7K9QSdBPbdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922592590555-o9vvj618o81m78gmkj257goqcelrv9h1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922592590555:android:24221642c8558b166eeafe",
+        "android_client_info": {
+          "package_name": "uz.avtogen.ios"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922592590555-o9vvj618o81m78gmkj257goqcelrv9h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVN_k-Z6EYE_mt6MvMQv0G7K9QSdBPbdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922592590555-o9vvj618o81m78gmkj257goqcelrv9h1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

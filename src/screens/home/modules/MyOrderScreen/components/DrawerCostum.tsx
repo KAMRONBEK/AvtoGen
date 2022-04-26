@@ -16,6 +16,7 @@ import {
 import {images} from '../../../../../constants/images';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {ROUTES} from '../../../../../constants/routes';
 let number = '+998977250000';
 
 const DrawerCostum = props => {
@@ -25,7 +26,7 @@ const DrawerCostum = props => {
   };
   return (
     <View style={styles.container}>
-      <DrawerContentScrollView showsVerticalScrollIndicator={false}  {...props}>
+      <DrawerContentScrollView showsVerticalScrollIndicator={false} {...props}>
         <View style={styles.row}>
           <TouchableOpacity onPress={onMenuPress}>
             <DrawerbackIcon />
@@ -34,22 +35,23 @@ const DrawerCostum = props => {
         </View>
         <View style={{}}>
           <View
-            style={{backgroundColor: COLORS.backgroundColorInput, marginTop:50, width: 100}}
+            style={{
+              backgroundColor: COLORS.backgroundColorInput,
+              marginTop: 50,
+              width: 100,
+            }}
           />
-          {/* <DrawerItemList   {...props} /> */}
-          <TouchableOpacity onPress={() => navigation.navigate('Главная')}>
+          <TouchableOpacity onPress={() => navigation.navigate(ROUTES.HOME)}>
             <Text style={styles.text}>Главная</Text>
           </TouchableOpacity>
-          <TouchableOpacity  onPress={() => navigation.navigate('Моизаказы')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Моизаказы')}>
             <Text style={styles.text}>Мои заказы</Text>
           </TouchableOpacity>
-          <TouchableOpacity  onPress={() => navigation.navigate('Настройки')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Настройки')}>
             <Text style={styles.text}>Настройки</Text>
           </TouchableOpacity>
-         
         </View>
         <View style={styles.containerimg}>
-          {/* <Image style={styles.img2} source={images.DrawerImg} /> */}
         </View>
         <View style={styles.numbercontainer}>
           <Text style={styles.number}>{number}</Text>
@@ -108,10 +110,10 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: 'flex-end',
   },
-text:{
-  fontSize:20,
-  color:COLORS.white,
-  marginHorizontal:15,
-  marginVertical:7,
-}
+  text: {
+    fontSize: 20,
+    color: COLORS.white,
+    marginHorizontal: 15,
+    marginVertical: 7,
+  },
 });

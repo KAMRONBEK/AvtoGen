@@ -15,17 +15,27 @@ import {
 import SwipeButton from 'rn-swipe-button';
 import {images} from '../../../../../../constants/images';
 import {STRINGS} from '../../../../../../locales/strings';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {COLORS} from '../../../../../../constants/colors';
+import BookingList from './components/BookingList';
+import Banner from '../../components/Banner';
 
 export default function view() {
-  let navigation = useNavigation();
-  const [hidePass, setHidePass] = useState();
+  let navigation = useNavigation();     
+  const text1 = {
+    text3: '45 min',
+    text2: 'Premium',
+  };
   let text = {
     adrees: 'ул. Лабзак, 12/1, Tashkent',
     name: 'Truman Barbershop',
     clock: '9-18',
   };
+
+  let route=useRoute()
+  console.log(route.params);
+  
+
   return (
     <View style={styles.container}>
       <View style={styles.HeaderContainer}>
@@ -37,6 +47,7 @@ export default function view() {
         <TouchableOpacity>
           <MenuIocnVertical />
         </TouchableOpacity>
+        
       </View>
       <View style={styles.imgcontainer}>
         <Image style={styles.img} source={images.BackgroundImg} />
@@ -56,74 +67,7 @@ export default function view() {
         <Image source={images.Background} style={styles.container1} />
         <Text style={styles.price}>ПРАЙС</Text>
         <View style={styles.ContainerText}>
-          <View style={styles.row01}>
-            <View style={styles.containerRate}>
-              <Text style={styles.rate}>Premium</Text>
-              <Text style={styles.hours}>30 min</Text>
-            </View>
-            <TouchableOpacity onPress={() => setHidePass(!hidePass)}>
-              {hidePass ? (
-                <View style={styles.containerbutton}>
-                  <Text style={styles.textvib}>Выбрать</Text>
-                </View>
-              ) : (
-                <View style={styles.containerbutton1}>
-                  <Text style={styles.textvib}>Выбрать</Text>
-                </View>
-              )}
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row01}>
-            <View style={styles.containerRate}>
-              <Text style={styles.rate}>Silver</Text>
-              <Text style={styles.hours}>45 min</Text>
-            </View>
-            <TouchableOpacity onPress={() => setHidePass(!hidePass)}>
-              {hidePass ? (
-                <View style={styles.containerbutton}>
-                  <Text style={styles.textvib}>Выбрать</Text>
-                </View>
-              ) : (
-                <View style={styles.containerbutton1}>
-                  <Text style={styles.textvib}>Выбрать</Text>
-                </View>
-              )}
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row01}>
-            <View style={styles.containerRate}>
-              <Text style={styles.rate}>Fade</Text>
-              <Text style={styles.hours}>45 min</Text>
-            </View>
-            <TouchableOpacity onPress={() => setHidePass(!hidePass)}>
-              {hidePass ? (
-                <View style={styles.containerbutton}>
-                  <Text style={styles.textvib}>Выбрать</Text>
-                </View>
-              ) : (
-                <View style={styles.containerbutton1}>
-                  <Text style={styles.textvib}>Выбрать</Text>
-                </View>
-              )}
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row01}>
-            <View style={styles.containerRate}>
-              <Text style={styles.rate}>Gold</Text>
-              <Text style={styles.hours}>45 min</Text>
-            </View>
-            <TouchableOpacity onPress={() => setHidePass(!hidePass)}>
-              {hidePass ? (
-                <View style={styles.containerbutton}>
-                  <Text style={styles.textvib}>Выбрать</Text>
-                </View>
-              ) : (
-                <View style={styles.containerbutton1}>
-                  <Text style={styles.textvib}>Выбрать</Text>
-                </View>
-              )}
-            </TouchableOpacity>
-          </View>
+          <BookingList />
           <View style={styles.row01}>
             <Text style={styles.rate1}>Total</Text>
             <Text style={styles.rate01}>

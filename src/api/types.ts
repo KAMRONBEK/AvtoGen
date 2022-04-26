@@ -23,3 +23,22 @@ export interface VerifyRequest {
   code: string;
   device: string;
 }
+export interface EntriesRequest {
+  category_id: number;
+  service_id: number;
+  pricelist_id: number;
+  when: string;
+  datetime: string;
+}
+
+export interface EntriesResponse {
+  category_id: number;
+  service_id: number;
+  pricelist_id: number;
+  datetime: string;
+  user_id: number;
+  status: string;
+  updated_at: Date;
+  created_at: Date;
+  id: number;
+}

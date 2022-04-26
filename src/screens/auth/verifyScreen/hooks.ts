@@ -21,11 +21,10 @@ export const useVerifyHook = () => {
   };
   const verify = async () => {
     try {
-      console.log({state});
+      // console.log({state});
 
       const res = await requests.auth.verify(state);
-      dispatch(userLoggedIn(res.data));
-      navigation.navigate(ROUTES.HOME);
+      dispatch(userLoggedIn(res.data.data));
     } catch (error) {
       console.error(error);
     }

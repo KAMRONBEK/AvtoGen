@@ -7,8 +7,8 @@ import {STRINGS} from '../../../locales/strings';
 import DefualtInput from './components/DefualtInput';
 import {useLoginHook} from './hooks';
 
-export default function view() {
-  const {login, handleInputChange, state} = useLoginHook();
+export default function LoginView() {
+  const {login, handleInputChange, state, loading} = useLoginHook();
 
   return (
     <View style={styles.container}>
@@ -35,7 +35,7 @@ export default function view() {
               <Text style={styles.text}>{STRINGS.Register}</Text>
             </View>
           </TouchableOpacity>
-        ) : null}
+        ) :  null}
       </View>
     </View>
   );
